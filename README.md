@@ -1,4 +1,4 @@
-# RMRFTR: Recursive Markov Random Fields for Change Point Detection
+# RMRFTR: Recursive Markov Random Fields Trend Restore 
 
 This repository contains the implementation of the **Recursive Markov Random Fields Trend Restore (RMRFTR)** method for detecting multiple change points in noisy piecewise linear (PWL) signals with  discontinuities.
 
