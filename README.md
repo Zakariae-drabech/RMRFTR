@@ -14,25 +14,21 @@ The noisy observation model is:
 
 $$ y_j = f_j + b_j, \quad b_j \sim \mathcal{N}(0, \sigma^2) $$
 
-where \( f_j \) is the true signal, and \( b_j \) is i.i.d. Gaussian noise.
+where $ f_j$ is the true signal, and $ b_j $ is i.i.d. Gaussian noise.
 
 ---
 
 ## Signal Model
 
-The underlying signal \( f(t) \) is modeled as:
+The underlying signal $ f(t) $ is modeled as:
 
-\[
-f(t) = \sum_{j=1}^{K+1} \left( \alpha_j + \beta_j t \right) \cdot \mathds{1}_{[\tau_{j-1} + 1, \tau_j]}(t)
-\]
+$$ f(t) = \sum_{j=1}^{K+1} \left( \alpha_j + \beta_j t \right) \cdot \mathds{1}_{[\tau_{j-1} + 1, \tau_j]}(t) $$
 
-- \( \tau_1, \dots, \tau_K \) are the unknown change points  
-- \( \alpha_j \), \( \beta_j \) are the intercept and slope of the \( j \)-th segment  
+- $ \tau_1, \dots, \tau_K$ are the unknown change points  
+- $ \alpha_j \), \( \beta_j$ are the intercept and slope of the $ j $-th segment  
 - The signal is **discontinuous** at change points:
   
-\[
-f(\tau_j^-) + \beta_j \neq f(\tau_j^+), \quad j = 1, \dots, K
-\]
+$$ f(\tau_j^-) + \beta_j \neq f(\tau_j^+), \quad j = 1, \dots, K$$
 
 This model allows for **slope changes** and **abrupt jumps** between segments.
 
