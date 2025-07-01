@@ -48,7 +48,12 @@ This model allows for **slope changes** and **abrupt jumps** between segments.
 - Python ≥ 3.6  
 - `numpy`, `scipy`
 
-<pre> ## Quick Start ```
+
+## *Usage
+
+Detect change points in PWL signals using RMRFTR:
+
+```python
 from RecMRFTR import RMRFTR
 import numpy as np
 import matplotlib.pyplot as plt
@@ -89,4 +94,3 @@ plt.legend()
 plt.title("RMRFTR: Change Point Detection in Noisy PWL Signal")
 plt.tight_layout()
 plt.show()
-``` </pre>
