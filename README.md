@@ -22,7 +22,7 @@ where $f_j$ is the true signal, and $b_j$ is i.i.d. Gaussian noise.
 
 The underlying signal $f(t)$ is modeled as:
 
-$$f(t) = \sum_{j=1}^{K+1} \left( \alpha_j + \beta_j t \right) \mathcal{1}_{[\tau_{j-1} + 1, \tau_j]}(t),$$
+$$f(t) = \sum_{j=1}^{K+1} ( \alpha_j + \beta_j t ) 1_{[\tau_{j-1} + 1, \tau_j]}(t),$$
 
 - $\tau_1, \dots, \tau_K$ are the unknown change points  
 - $\alpha_j$, $\beta_j$ are the intercept and slope of the $j$-th segment  
