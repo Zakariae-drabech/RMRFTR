@@ -49,7 +49,7 @@ This model allows for **slope changes** and **abrupt jumps** between segments.
 - `numpy`, `scipy`
 
 
-## *Usage
+## Usage
 
 Detect change points in PWL signals using RMRFTR:
 
