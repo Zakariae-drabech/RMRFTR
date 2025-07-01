@@ -12,9 +12,7 @@ Change point detection (CPD) plays a central role in many scientific fields such
 
 The noisy observation model is:
 
-\[
-y_j = f_j + b_j, \quad b_j \sim \mathcal{N}(0, \sigma^2)
-\]
+$$ y_j = f_j + b_j, \quad b_j \sim \mathcal{N}(0, \sigma^2) $$
 
 where \( f_j \) is the true signal, and \( b_j \) is i.i.d. Gaussian noise.
 
