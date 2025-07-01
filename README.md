@@ -47,3 +47,46 @@ This model allows for **slope changes** and **abrupt jumps** between segments.
 
 - Python ≥ 3.6  
 - `numpy`, `scipy`
+
+## Quick Start
+
+from RecMRFTR import RMRFTR
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Step 1: Generate a synthetic PWL signal with jumps
+def f(x):
+    if x <= 100:
+        return x / 50                          
+    elif x <= 200:
+        return 4 + (x - 100) / 20              
+    else:
+        return 6 - (x - 200) / 100             
+
+        
+n = 300
+t=np.arange(n)          
+ff=np.vectorize(f)
+signal=ff(t)
+
+# Step 2: Add Gaussian noise
+np.random.seed(0)
+sigma = 1
+y = signal + np.random.normal(0, sigma, size=n)
+
+# Step 3: Run RMRFTR
+model = RMRFTR(mu=50, h0=1.5)
+model.run(y)
+restored = model.x_mrf
+
+# Step 4: Plot results
+plt.figure(figsize=(12, 4))
+plt.plot(y, 'ko',label="Noisy Signal", alpha=0.6)
+plt.plot(signal,'g' , label="True Signal",  linewidth=3)
+plt.plot(restored,'r', label="Restored Signal", linewidth=3)
+for cp in model.ChangePoints:
+    plt.axvline(cp, color="red", linestyle=":", label="Detected CP" if cp == model.ChangePoints[0] else "")
+plt.legend()
+plt.title("RMRFTR: Change Point Detection in Noisy PWL Signal")
+plt.tight_layout()
+plt.show()
